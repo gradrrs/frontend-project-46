@@ -1,0 +1,9 @@
+{
+  "name": "@hexlet/code",
+  "version": "1.0.0",
+  "type": "module",
+  "bin": {
+    "gendiff": "./gendiff.js"
+  },
+  "main": "src/index.js"
+}

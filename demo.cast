@@ -1,0 +1,12 @@
+{"version": 2, "width": 85, "height": 26, "timestamp": 1765962505, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.180304, "o", "\u001b[?2004h\u001b]0;root@DESKTOP-NECNFJ4: /mnt/c/Users/Артем/verst/frontend-project-46\u0007root@DESKTOP-NECNFJ4:/mnt/c/Users/Артем/verst/frontend-project-46# "]
+[3.40865, "o", "node gendiff.js -h \r"]
+[4.282913, "o", "\u001b[A\r\n\u001b[?2004l\r"]
+[4.394573, "o", "Usage: gendiff [options] <filepath1> <filepath2>\r\n\r\nCompares two configuration files and shows a difference.\r\n\r\nArguments:\r\n  filepath1            path to first file\r\n  filepath2            path to second file\r\n\r\nOptions:\r\n  -V, --version        output the version number\r\n  -f, --format <type>  output format (default: \"stylish\") (default: \"stylish\")\r\n  -h, --help           display help for command\r\n"]
+[4.396763, "o", "\u001b[?2004h\u001b]0;root@DESKTOP-NECNFJ4: /mnt/c/Users/Артем/verst/frontend-project-46\u0007root@DESKTOP-NECNFJ4:/mnt/c/Users/Артем/verst/frontend-project-46# "]
+[7.377921, "o", "node gendiff.js file1.json file2.json"]
+[8.031956, "o", "\r\n\u001b[?2004l\r"]
+[8.143214, "o", "{\r\n- follow: false\r\n  host: hexlet.io\r\n- proxy: 123.234.53.22\r\n- timeout: 50\r\n+ timeout: 20\r\n+ verbose: true\r\n}\r\n"]
+[8.145751, "o", "\u001b[?2004h\u001b]0;root@DESKTOP-NECNFJ4: /mnt/c/Users/Артем/verst/frontend-project-46\u0007root@DESKTOP-NECNFJ4:/mnt/c/Users/Артем/verst/frontend-project-46# "]
+[10.719167, "o", "\u001b[?2004l\r\r\n"]
+[10.71928, "o", "exit\r\n"]

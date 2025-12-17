@@ -1,19 +1,16 @@
 import fs from 'fs';
 import path from 'path';
 
-const parseFile = (filepath) => {
-  const absolutePath = path.resolve(process.cwd(), filepath);
-  
-  const fileContent = fs.readFileSync(absolutePath, 'utf-8');
-  
-  const extension = path.extname(filepath).toLowerCase();
-  
-  switch (extension) {
-    case '.json':
-      return JSON.parse(fileContent);
+const parseFile = (filePath) => {
+  const absolutePath = path.resolve(process.cwd(), filePath);
+  const rawData = fs.readFileSync(absolutePath, 'utf-8');
+  const ext = path.extname(filePath).toLowerCase();
 
+  switch (ext) {
+    case '.json':
+      return JSON.parse(rawData);
     default:
-      throw new Error(`Unsupported file format: ${extension}`);
+      throw new Error(`Unsupported file extension: ${ext}`);
   }
 };
 

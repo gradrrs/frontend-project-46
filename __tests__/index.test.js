@@ -1,30 +1,30 @@
 import { test, expect } from '@jest/globals';
-import path from 'path';
+import fs from 'fs';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import genDiff from '../src/index.js';
+import genDiff from '../index.js';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const __dirname = dirname(__filename);
 
-const getFixturePath = (filename) => path.join(__dirname, 'fixtures', filename);
+const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
+const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8');
 
-test('compare flat JSON files', () => {
-  const file1 = getFixturePath('file1.json');
-  const file2 = getFixturePath('file2.json');
-  
-  const result = genDiff(file1, file2);
-  
-  expect(result).toContain('- follow: false');
-  expect(result).toContain('host: hexlet.io');
-  expect(result).toContain('- proxy: 123.234.53.22');
-  expect(result).toContain('- timeout: 50');
-  expect(result).toContain('+ timeout: 20');
-  expect(result).toContain('+ verbose: true');
+const json = getFixturePath('file1.json');
+const yml = getFixturePath('file2.yml');
+
+test('stylish format', () => {
+  const resultStylish = readFile('resultStylish.txt');
+  expect(genDiff(json, yml)).toEqual(resultStylish);
+  expect(genDiff(json, yml, 'stylish')).toEqual(resultStylish);
 });
 
-test('compare empty JSON files', () => {
-  const emptyFile = getFixturePath('empty.json');
-  const result = genDiff(emptyFile, emptyFile);
-  
-  expect(result).toBe('{\n\n}');
+test('plain format', () => {
+  const resultPlain = readFile('resultPlain.txt');
+  expect(genDiff(json, yml, 'plain')).toEqual(resultPlain);
+});
+
+test('JSON format', () => {
+  const resultJSON = readFile('resultJSON.txt');
+  expect(genDiff(json, yml, 'json')).toEqual(resultJSON);
 });

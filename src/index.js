@@ -30,7 +30,7 @@ const buildDiff = (data1, data2) => {
       { key, status: 'removed', value: val1 },
       { key, status: 'added', value: val2 },
     ];
-  }).flat(); 
+  }).flat();
 };
 
 const genDiff = (filePath1, filePath2, format = 'stylish') => {
